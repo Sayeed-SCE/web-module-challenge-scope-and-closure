@@ -106,8 +106,6 @@ function getInningScore(callback) {
 
   const startScore = {Home: callback(), Away: callback() };
 
-
-
   return startScore;
 }
 console.log(getInningScore(inning));
@@ -154,9 +152,42 @@ Use the scoreboard function below to do the following:
 ]  
   */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(getInningScore, inning, numberPlayed) {
+  const newArr = [];
+
+  const obj = {Home: 0, Away: 0};
+
+  for (let i =0; i<numberPlayed; i++){
+  
+    const newVar = getInningScore(inning);
+
+    newArr.push(`Inning ${i+1}: Home ${newVar.Home} - Away ${newVar.Away}`);
+
+    obj.Home += newVar.Home;
+
+    obj.Away += newVar.Away;
+
+  }
+  if (obj.Home === obj.Away){
+
+    newArr.push(`This game will require extra innings: ${obj.Home} - ${obj.Away}`);
+
+    
+  }else {
+
+    newArr.push(`Final Score: Home ${obj.Home} - Away ${obj.Away}`);
+  }
+  
+
+
+  
+
+  return newArr;
+
+
+
 }
+console.log(scoreboard(getInningScore,inning, 9));
 
 
 
