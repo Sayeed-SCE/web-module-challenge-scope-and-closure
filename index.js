@@ -28,11 +28,14 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
+    Counter 1 is a scope or closure function where one function is inside another function and it referencing the outer function. 
   
   2. Which of the two uses a closure? How can you tell?
-  
+  counter 1 is a closure function because referincing an outer function from an inner function.
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
+     most advanced softwares where too many code blocks and pages get connected together to make a software are using the closure or scope
+     the counter 2 is a globe variable and it's not clean or standard coding.
 */
 
 // counter1 code
@@ -42,7 +45,6 @@ function counterMaker() {
    return count++;
   }
 }
-
 const counter1 = counterMaker();
 
 // counter2 code
@@ -178,13 +180,7 @@ function scoreboard(getInningScore, inning, numberPlayed) {
     newArr.push(`Final Score: Home ${obj.Home} - Away ${obj.Away}`);
   }
   
-
-
-  
-
   return newArr;
-
-
 
 }
 console.log(scoreboard(getInningScore,inning, 9));
